@@ -1,0 +1,64 @@
+{
+    "manifest_version": 3,
+    "name": "PR Review Agent (GitHub + GitLab + Bitbucket + LLM)",
+    "version": "0.3.4",
+    "description": "AI-assisted PR/MR review for GitHub, GitLab & Bitbucket (public, private & self-hosted) using OpenAI or Ollama.",
+  
+    "action": {
+      "default_title": "PR Review Agent",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+  
+    "options_page": "options.html",
+  
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+  
+    "permissions": [
+      "storage",
+      "tabs",
+      "activeTab",
+      "scripting",
+      "permissions",
+      "windows",
+      "declarativeNetRequest"
+    ],
+  
+    "host_permissions": [
+      "https://github.com/*",
+      "https://api.github.com/*",
+      "https://gitlab.com/*",
+      "https://bitbucket.org/*",
+      "https://api.bitbucket.org/*",
+      "http://localhost/*",
+      "http://127.0.0.1/*"
+    ],
+  
+    "optional_host_permissions": [
+      "https://*/*",
+      "http://*/*"
+    ],
+  
+    "declarative_net_request": {
+      "rule_resources": [
+        {
+          "id": "cors_localhost",
+          "enabled": true,
+          "path": "rules.json"
+        }
+      ]
+    },
+  
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+  

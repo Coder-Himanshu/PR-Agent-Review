@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PR Review Agent</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">
+          <div class="dot"></div>
+          <div>
+            <h1>PR Review Agent <span class="version">v1.0</span></h1>
+            <p>Developed by <a href="https://www.linkedin.com/in/creativehimanshu00/" target="_blank">Himanshu Sharma</a></p>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <div id="statusPill" class="btn ghost pill-btn" style="cursor: default;">Ready</div>
+          <button id="settingsBtn" class="btn ghost">Settings</button>
+          <button id="closeBtn" class="close-btn" title="Close">×</button>
+        </div>
+      </div>
+
+      <div class="card glass-card">
+        <div class="grid">
+          <div class="field field-url">
+            <label>Current PR/MR URL</label>
+            <input id="currentUrl" class="glass-input" placeholder="Click Detect from tab…" readonly />
+            <div class="help">Open a PR/MR page in the current tab, then click Detect.</div>
+          </div>
+
+          <div class="field field-detect">
+            <label>&nbsp;</label>
+            <button id="detectBtn" class="btn primary btn-animate">Detect from tab</button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="reviewBtn" class="btn btn-primary-action btn-animate" disabled>
+            <span class="btn-text">AI Review</span>
+            <div class="loader-container">
+              <div class="loader"></div>
+            </div>
+          </button>
+          <button id="copyBtn" class="btn btn-secondary btn-animate" disabled>Copy review</button>
+          <button id="clearBtn" class="btn ghost btn-animate">Clear</button>
+        </div>
+
+        <div class="field" style="margin-top:12px;">
+          <label>Review output</label>
+          <div id="output" class="markdown-preview" style="display:none;"></div>
+          <div id="outputPlaceholder" class="markdown-placeholder">Your review will appear here...</div>
+        </div>
+      </div>
+
+      <div id="toast" class="toast"></div>
+    </div>
+
+    <!-- Centered Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+      <div class="loading-content">
+        <div class="loader-large"></div>
+        <p class="loading-text">AI Review in progress...</p>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
